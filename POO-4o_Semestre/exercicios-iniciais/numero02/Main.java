@@ -12,7 +12,7 @@ public class Main
         System.out.println("Informe o nome:");
         cidadao.setNome(entrada.nextLine());
 
-        System.out.println("Informe o seu sexo:");
+        System.out.println("Informe o seu sexo:\nM - Masculino\nF - Feminino");
         cidadao.setSexo(entrada.nextLine());
 
         System.out.println("Informe a idade: ");

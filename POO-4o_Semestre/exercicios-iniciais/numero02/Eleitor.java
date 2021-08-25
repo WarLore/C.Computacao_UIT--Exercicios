@@ -59,7 +59,7 @@ public class Eleitor
     public String verificarEstadoVotacao()
     {
         if(getIdade()<16){
-            return "\nIMPEDIDA DE VOTAR";
+            return "\nNÃO PODE VOTAR";
         } else if(getIdade()<=18 || getIdade()>60){
             return "\nVOTO FACULTATIVO";
         } else{

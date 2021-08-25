@@ -44,8 +44,7 @@ public class Produto
             this.precoVenda = precoVenda;
         } else{
             System.out.println("O preço de venda é menor do que o preço de custo!!!");
-        }
-        
+        }     
     }
 
     public double getPrecoVenda()

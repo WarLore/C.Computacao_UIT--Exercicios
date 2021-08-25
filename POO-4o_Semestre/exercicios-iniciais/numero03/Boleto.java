@@ -24,7 +24,6 @@ public class Boleto
         } else{
             return 0;
         }
-        
     }
 
     public void pagarBoleto()
@@ -48,9 +47,6 @@ public class Boleto
                 "\nValor do boleto: " + this.valor +
                 "\nValor do desconto: " + this.desconto +
                 "\nValor líquido: " + calcularValorLiquido() +
-                verificarPagamento();
-                
+                verificarPagamento();         
     }
-
-
 }

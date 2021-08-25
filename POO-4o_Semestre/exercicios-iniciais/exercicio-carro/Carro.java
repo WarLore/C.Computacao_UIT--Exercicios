@@ -34,7 +34,7 @@ public class Carro
         this.velocidade = 0;
         this.velocidadeAtingida = 0;
     }
-
+    //GETTERS e SETTERS
     public void setPlaca(String placa)
     {
         this.placa = placa;
@@ -88,16 +88,6 @@ public class Carro
         return this.velocidadeAtingida;
     }
 
-    public void ligar()
-    {
-        this.ligado = true;
-    }
-
-    public void desligar()
-    {
-        this.ligado = false;
-    }
-
     public String isLigado()
     {
         if(this.ligado){
@@ -106,7 +96,17 @@ public class Carro
             return "\nCarro desligado";
         }
     }
-
+    //Ligar o carro
+    public void ligar()
+    {
+        this.ligado = true;
+    }
+    //Desligar o carro
+    public void desligar()
+    {
+        this.ligado = false;
+    }
+    //Imprimir os dados
     public String imprimirDetalhes()
     {
         return "\nPlaca:" + getPlaca() + 

@@ -6,7 +6,6 @@ public class TestaPessoa
     {
         //Criando os objetos
         Scanner entrada = new Scanner(System.in);
-
         Pessoa pessoa1 = new Pessoa();
         Pessoa pessoa2 = new Pessoa();
 
@@ -34,8 +33,6 @@ public class TestaPessoa
         //Imprmindo os dados dos objetos
         System.out.println("\n\nPESSOAS CADASTRADAS: ");
         System.out.println(pessoa1.imprimirDados());
-        System.out.println(pessoa2.imprimirDados());
-
-        
+        System.out.println(pessoa2.imprimirDados());  
     }
 }
