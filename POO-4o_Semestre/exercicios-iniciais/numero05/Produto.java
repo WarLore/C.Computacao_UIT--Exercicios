@@ -1,5 +1,3 @@
-
-
 /*Crie uma classe Produto para representar um produto do mundo real. Sua classe deverá conter os seguintes atributos e métodos:
 Um campo de dados privado do tipo String chamado nome, que representará o nome do produto.
 Um campo de dados privado do tipo double chamado precoCusto, que guardará o preço de custo do produto.
@@ -55,8 +53,8 @@ public class Produto
     public String calcularMargemLucro()
     {
         this.margemLucro = getPrecoVenda() - getPrecoCusto();
-        if(this.precoVenda >= this.precoCusto){
-            String resultado = String.format("%.2f", this.margemLucro);
+        if(margemLucro>=0){
+            String resultado = String.format("%.2f", margemLucro);
             return resultado;
         } else{
             return "0";
@@ -66,7 +64,7 @@ public class Produto
     public String getMargemLucroPorcentagem()
     {
         if(this.margemLucro >=0){
-            double margemLucroPorcentagem = (this.margemLucro / getPrecoCusto()) * 100;
+            double margemLucroPorcentagem = (margemLucro / getPrecoCusto()) * 100;
             String resultado = String.format("%.1f", margemLucroPorcentagem);
             return resultado;
         } else{
