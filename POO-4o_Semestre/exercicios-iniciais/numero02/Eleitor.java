@@ -60,7 +60,7 @@ public class Eleitor
     {
         if(getIdade()<16){
             return "\nNÃO PODE VOTAR";
-        } else if(getIdade()<=18 || getIdade()>60){
+        } else if(getIdade()<18 || getIdade()>60){
             return "\nVOTO FACULTATIVO";
         } else{
             return "\nVOTO OBRIGATÓRIO";
