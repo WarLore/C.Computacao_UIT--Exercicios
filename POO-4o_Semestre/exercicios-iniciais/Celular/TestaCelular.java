@@ -15,7 +15,7 @@ public class TestaCelular {
         System.out.println("Informe o nível do som:");
         nivelSom= entrada.nextInt();
 
-        Celular nokia = new Celular(modelo, nivelBateria, nivelSom);
+        Celular celular1 = new Celular(modelo, nivelBateria, nivelSom);
 
         do{
             System.out.println("Selecione uma opção:");
@@ -33,21 +33,21 @@ public class TestaCelular {
                     System.out.println("Sistema fechado");
                     break;
                 case 1:
-                    System.out.println(nokia.ligar());
+                    System.out.println(celular1.ligar());
                     break;
                 case 2:
-                    nokia.carregarBateria();
-                    System.out.println("A bateria está em " + nokia.getNivelBateria() + "%");
+                    celular1.carregarBateria();
+                    System.out.println("A bateria está em " + celular1.getNivelBateria() + "%");
                     break;
                 case 3:
-                    if(nokia.getNivelBateria()>0 && nokia.isLigado()){
+                    if(celular1.getNivelBateria()>0 && celular1.isLigado()){
                         int numero;
                         System.out.println("O jogo é PAR OU IMPAR");   
-                        System.out.print("Informe um número: ");
+                        System.out.print("Informe um número (0 a 5): ");
                         numero = entrada.nextInt();
 
-                        System.out.println(nokia.jogar(numero));
-                        System.out.println(nokia.getNivelBateria());
+                        System.out.println(celular1.jogar(numero));
+                        System.out.println("Nível da bateria: " + celular1.getNivelBateria());
                     } else{
                         System.out.println("Não foi possível jogar.");
                     }
@@ -56,14 +56,12 @@ public class TestaCelular {
                     
                     System.out.println("Informe o nível de volume que deseja aumentar:");
                     som = entrada.nextInt();
-                    System.out.println(nokia.aumentarVolume(som));
+                    System.out.println(celular1.aumentarVolume(som));
                     break;
                 case 5:
                     System.out.println("Informe o nível de volume que deseja diminuir:");
                     som = entrada.nextInt();
-                    System.out.println(nokia.diminuirVolume(som));
-
-                    
+                    System.out.println(celular1.diminuirVolume(som));
                     break; 
                 default:
                     System.out.println("Opção inválida, por favor, selecione uma opção válida.");

@@ -63,13 +63,8 @@ public class Celular
         } else{
             return "Não foi possível ligar, por favor, recarregue-o";
         }
-        
     }
-    /*
-    public void setLigado(boolean ligado) {
-        this.ligado = ligado;
-    }
-    */
+    
     private void setSom(int som){
         this.som = som;
     }
@@ -113,17 +108,12 @@ public class Celular
     }
 
     public String jogar(int num){
-        if(this.nivelBateria>0 && this.ligado == true){
             Random numeroRandom = new Random();
             this.nivelBateria--;
-            //System.out.println("Numero escolhido: " + numeroRandom.nextInt(10));
-            if(numeroRandom.nextInt(5) == num){
+            if(numeroRandom.nextInt(6) == num){
                 return "Você venceu";
             } else{
                 return "Voce perdeu";
-            }
-        } else{
-            return "Não é possível jogar.";
-        }   
+            }  
     }
 }

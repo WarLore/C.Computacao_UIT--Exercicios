@@ -29,21 +29,19 @@ public class Carro {
     private double potenciaMotor;
     private int capacidadeTanque;
     private double combustivel;
-    //private double combustivelGasto;
     private boolean ligado;
-    private int velocidade;
-    private int velocidadeMaxima;
-    //private int velocidadeAtingida;
+    private double velocidade;
+    private double velocidadeMaxima;
+    private double aceleracao;
 
-    public Carro(String modelo, String placa, double potenciaMotor, int capacidadeTanque, int velocidadeMaxima){
+    public Carro(String modelo, String placa, double potenciaMotor, int capacidadeTanque, double velocidadeMaxima){
         setModelo(modelo);
         setPlaca(placa);
         setPotenciaMotor(potenciaMotor);
         setCapacidadeTanque(capacidadeTanque);
         setVelocidadeMaxima(velocidadeMaxima);
-        this.velocidade = 0;
     }
-
+    //GETTERS E SETTERS
     private void setModelo(String modelo){
         this.modelo = modelo;
     }
@@ -61,9 +59,11 @@ public class Carro {
     }
 
     private void setPotenciaMotor(double potenciaMotor){
-        if(this.potenciaMotor>=1.0 && this.potenciaMotor<=2.0){
+        if(potenciaMotor>=1 && potenciaMotor<=2){
             this.potenciaMotor = potenciaMotor;
-        } 
+        } else{
+            this.potenciaMotor = 1.0;
+        }  
     }
 
     public double getPotenciaMotor(){
@@ -71,7 +71,7 @@ public class Carro {
     }
 
     private void setCapacidadeTanque(int capacidadeTanque){
-        if(capacidadeTanque > 0){
+        if(capacidadeTanque>0 && capacidadeTanque<100){
             this.capacidadeTanque = capacidadeTanque;
         }
     }
@@ -81,7 +81,7 @@ public class Carro {
     }
 
     public void abastecer(double combustivel){
-        if(this.combustivel<=this.capacidadeTanque){
+        if(combustivel<this.capacidadeTanque){
             this.combustivel = combustivel;
         } else{
             this.combustivel = this.capacidadeTanque;
@@ -92,45 +92,67 @@ public class Carro {
         return this.combustivel;
     }
 
-    private void setVelocidadeMaxima(int velocidadeMaxima){
-        if(this.velocidadeMaxima>0){
+    private void setVelocidadeMaxima(double velocidadeMaxima){
+        if(velocidadeMaxima>0 && velocidadeMaxima<350){
             this.velocidadeMaxima = velocidadeMaxima;
         }
     }
 
-    public void ligar(){
-        this.ligado = true;
+    public double getVelocidadeMaxima(){
+        return this.velocidadeMaxima;
     }
 
-    public void desligar(){
+    public String ligar(){
+        if(this.combustivel>0){
+            this.ligado = true;
+            return "O carro está ligado\n";
+        } else{
+            return "Abasteça o carro\n";
+        }
+    }
+
+    public String desligar(){
         this.ligado = false;
+        this.velocidade = 0;
+        return "O carro foi desligado.";
     }
 
     public void acelerar()
     {
-        if(this.combustivel>0 && this.ligado == true)
-        {
-            this.velocidade = this.velocidade + 10;
-            this.combustivel = this.combustivel - this.potenciaMotor;
-            System.out.println("Velocidade atual: " + this.velocidade);
-            System.out.println("Combustivel: " + this.combustivel);
-            if(this.combustivel <= this.capacidadeTanque*0.1){
-                System.out.println("A capacidade do tanque está baixa. Por favor, abasteça.");
+        aceleracao = this.potenciaMotor*10;
+        if(this.combustivel>0 && this.ligado==true){
+            if(this.velocidade+aceleracao < this.velocidadeMaxima){
+                this.velocidade += this.potenciaMotor * 10;   
+            } else{
+                this.velocidade = this.velocidadeMaxima;
             }
-            if(this.velocidade > this.velocidadeMaxima){
-                this.velocidade = velocidadeMaxima;
+
+            if(this.combustivel<this.potenciaMotor){
+                System.out.println("Não é possível acelerar. Por favor, reabasteça.");
+                System.out.println(desligar());
+            } else{
+                this.combustivel -= this.potenciaMotor;
+            }
+            
+            if(this.combustivel<=this.capacidadeTanque*0.1){
+                System.out.println("A capacidadade do tanque está baixa. Por favor, reabasteça.");
             }
         } else{
             System.out.println("Não foi possível acelerar");
-            this.velocidade = 0;
         }
     }
 
-    public int getVelocidade(){
+    public double getVelocidade(){
         return this.velocidade;
     }
 
-    public void frear(){
-        this.velocidade = 0;
+    public String frear(){
+        if(this.combustivel>0 && this.ligado==true){
+            this.velocidade = 0;
+            return "Carro freou";
+        } else{
+            return "Não foi possível frear";
+        }
+        
     }
 }
