@@ -22,11 +22,16 @@ public class Celular
     private int nivelBateria;
     private boolean ligado;
     private int som;
+    public String estado;
 
     public Celular(String modelo, int nivelBateria, int nivelSom){
         setModelo(modelo);
         setNivelBateria(nivelBateria);
         setSom(nivelSom); 
+    }
+
+    public Celular(String modelo, int nivelBateria){
+
     }
 
     private void setModelo(String modelo){

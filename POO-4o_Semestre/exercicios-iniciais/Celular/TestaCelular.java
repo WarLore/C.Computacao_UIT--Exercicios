@@ -14,9 +14,8 @@ public class TestaCelular {
         nivelBateria = entrada.nextInt();
         System.out.println("Informe o nível do som:");
         nivelSom= entrada.nextInt();
-
+        
         Celular celular1 = new Celular(modelo, nivelBateria, nivelSom);
-
         do{
             System.out.println("Selecione uma opção:");
             System.out.println("0 - Sair");
