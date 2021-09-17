@@ -20,42 +20,60 @@ public class Televisao
         setVolumeMaximo(volumeMaximo);
     }
 
-    public void ligar(){
+    public String ligar(){
         this.ligado = true;
+        return "A televisão está ligada";
     }
 
-    public void desligar(){
+    public String desligar(){
         this.ligado = false;
+        return "A televisão está desligada";
     }
 
     public void trocarCanal(){
-        
-        canalAtual = (canalAtual % quantidadeCanais) + 1;
+        if(this.ligado){
+            this.canalAtual = (this.canalAtual % this.quantidadeCanais) + 1;
+        }
     }
 
-    public void trocarCanal(int canal){
-        
+    public String trocarCanal(int canal){
+        if(this.ligado && canal<=this.quantidadeCanais){
+            this.canalAtual = canal;
+            return "";
+        } else{
+            return "Não foi possível mudar o canal";
+        }
     }
 
     public void aumentarVolume(int volume){
-        if(volume>0 && volume<=this.volumeMaximo){
-            if(this.volume+volume > this.volumeMaximo){
-                this.volume = this.volumeMaximo;
-            } else{
-                this.volume += volume;
+        if(this.ligado){
+            if(volume>0 && volume<=this.volumeMaximo){
+                if(this.volume+volume > this.volumeMaximo){
+                    this.volume = this.volumeMaximo;
+                } else{
+                    this.volume += volume;
+                }
             }
         }
     }
 
     public void diminiuirVolume(int volume){
-        if(volume>0 && volume<=this.volumeMaximo){
-            if(this.volume-volume < 0){
-                this.volume = 0;
-            } else{
-                this.volume -= volume;
+        if(this.ligado){
+            if(volume>0 && volume<=this.volumeMaximo){
+                if(this.volume-volume < 0){
+                    this.volume = 0;
+                } else{
+                    this.volume -= volume;
+                }
             }
         }
     }
+
+    public String toString(){
+        String mensagem = String.format("MODELO: %s\nCANAL ATUAL: %d\nVOLUME: %d\n", this.marca, this.canalAtual, this.volume);
+        return mensagem;
+    }
+
     public String getMarca() {
         return marca;
     }
@@ -78,6 +96,14 @@ public class Televisao
 
     private void setVolumeMaximo(int volumeMaximo) {
         this.volumeMaximo = volumeMaximo;
+    }
+
+    public int getVolume(){
+        return this.volume;
+    }
+
+    public int getCanalAtual(){
+        return this.canalAtual;
     }
 
     

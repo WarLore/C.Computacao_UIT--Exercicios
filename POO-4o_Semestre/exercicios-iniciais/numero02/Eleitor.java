@@ -23,10 +23,7 @@ public class Eleitor
         String charSexo = sexo.toUpperCase();
         if(charSexo.equals("F") || charSexo.equals("M")){
             this.sexo = charSexo;
-        } else{
-            System.out.println("Sexo inválido");
-        }
-        
+        } 
     }
 
     public String getSexo()
@@ -58,20 +55,18 @@ public class Eleitor
     //Verificar o estado de votação do candidato
     public String verificarEstadoVotacao()
     {
-        if(getIdade()<16){
+        if(this.idade<16){
             return "\nNÃO PODE VOTAR";
-        } else if(getIdade()<18 || getIdade()>60){
+        } else if(this.idade<18 || this.idade>60){
             return "\nVOTO FACULTATIVO";
         } else{
             return "\nVOTO OBRIGATÓRIO";
         }
     }
     //Imprimir dados do eleitor
-    public String imprimirEleitor()
+    public String toString()
     {
-        return "\nNome: " + getNome() +
-                "\nSexo: " + getSexo() +
-                "\nIdade: " + getIdade() +
-                "\nTitulo: " + getTitulo();
+        String mensagem = String.format("Nome: %s\nSexo: %s\nIdade: %d\nTitulo: %d", this.nome, this.sexo, this.idade, this.titulo);
+        return mensagem;
     }
 }

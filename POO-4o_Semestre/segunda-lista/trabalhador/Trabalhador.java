@@ -16,8 +16,16 @@ public class Trabalhador
         this.matricula = matricula;
     }
 
+    public String getMatricula(){
+        return this.matricula;
+    }
+
     private void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getNome(){
+        return this.nome;
     }
 
     private void setSalario(double salario) {
@@ -26,6 +34,10 @@ public class Trabalhador
         } else{
             this.salario = 1100;
         }
+    }
+
+    public double getSalario(){
+        return this.salario;
     }
 
     public String toString(){

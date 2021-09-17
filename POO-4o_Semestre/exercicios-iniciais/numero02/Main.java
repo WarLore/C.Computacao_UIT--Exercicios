@@ -22,6 +22,7 @@ public class Main
         cidadao.setTitulo(entrada.nextInt());
 
         //Verificar o estado do eleitor
+        System.out.println(cidadao);
         System.out.println(cidadao.verificarEstadoVotacao());
         
         entrada.close();
