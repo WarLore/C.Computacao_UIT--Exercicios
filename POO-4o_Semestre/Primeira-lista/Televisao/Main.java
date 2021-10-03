@@ -5,6 +5,7 @@ public class Main {
     {
         int quantidadeCanais, volumeMaximo, opcao, volume;
         String marca;
+
         Scanner entrada = new Scanner(System.in);
         
         System.out.print("Informe o marca: ");
@@ -39,11 +40,13 @@ public class Main {
                         System.out.println("Informe o canal:");
                         canal = entrada.nextInt();
                         System.out.println(tv.trocarCanal(canal));
-                        System.out.printf("Canal Atual: %d", tv.getCanalAtual());
+                        
                     } else{
                         tv.trocarCanal();
-                        System.out.printf("Canal Atual: %d", tv.getCanalAtual());
+                        
                     }
+                    System.out.printf("Canal Atual: %d", tv.getCanalAtual());
+
                     break;
                 case 3:
                     System.out.println("Informe o valor:: ");
@@ -68,6 +71,8 @@ public class Main {
                     break;
             }
         } while(opcao!=0);
+
+        entrada.close();
     }
 
     public static void menu(){

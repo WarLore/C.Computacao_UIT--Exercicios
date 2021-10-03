@@ -1,0 +1,1 @@
+Está começando no número 2 porque o número 1 não precisava de fazer o código.
