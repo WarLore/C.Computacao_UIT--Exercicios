@@ -22,9 +22,9 @@ public class TestaComputador {
                         System.out.printf("\n%d COMPUTADOR\n", contador+1);
                         System.out.print("\nInforme o fabricante: ");
                         fabricante = entrada.nextLine();
-                        System.out.print("Informe o tamanho do HD: ");
+                        System.out.print("Informe o tamanho do HD (em GB): ");
                         tamanhoHd = entrada.nextInt();
-                        System.out.print("Informe o tamanho da RAM: ");
+                        System.out.print("Informe o tamanho da RAM (em MB): ");
                         tamanhoRam = entrada.nextInt();
                         System.out.print("Informe o tamanho a quantidade de processadores: ");
                         qtdProcessadores = entrada.nextInt();
@@ -32,14 +32,21 @@ public class TestaComputador {
                         computadores[contador] = new Computador(fabricante, tamanhoHd, tamanhoRam, qtdProcessadores);
                         contador++;
                     } else{
-                        System.out.println("Não é possível criar mais computadores.");
+                        System.out.println("Não é possível cadastrar mais computadores.");
                     }
                     break;
                 case 2:
-                    for(int i = 0; i<=Computador.quantidadeComputadores(); i++){
+                    int quantidadeComputadores = Computador.quantidadeComputadores();
+                    int count = quantidadeComputadores;
+                
+                    for(int i = 0; i<quantidadeComputadores; i++){
                         if(computadores[i].getTamanhoRam()>512){
                             System.out.println(computadores[i]);
-                        } 
+                            count--;
+                        }
+                    }
+                    if(count==quantidadeComputadores){
+                        System.out.println("Não há computadores cadastrados que atendam os requisitos.");
                     }
                     break;
                 default:
@@ -52,8 +59,8 @@ public class TestaComputador {
     }
 
     public static void menu(){
-        System.out.println("0 - Sair");
-        System.out.println("1 - Cadastra");
+        System.out.println("\n0 - Sair do sistema");
+        System.out.println("1 - Realizar cadastro");
         System.out.println("2 - Mostrar dados");
     }
 }
