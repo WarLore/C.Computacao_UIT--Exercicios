@@ -35,7 +35,7 @@ public class Computador{
     }
 
     public String toString(){
-        String mensagem = String.format("ID: %d\nFabricante: %s\nTamanho do HD: %d\nTamanho da RAM: %d\nQuantidade de Processadores: %d", this.idComputador, this.fabricante, this.tamanhoHd, this.tamanhoRam, this.qtdProcessadores);
+        String mensagem = String.format("\nID: %d\nFabricante: %s\nTamanho do HD: %d\nTamanho da RAM: %d\nQuantidade de Processadores: %d", this.idComputador, this.fabricante, this.tamanhoHd, this.tamanhoRam, this.qtdProcessadores);
         return mensagem;
     }
 
