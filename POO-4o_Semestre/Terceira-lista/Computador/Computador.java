@@ -40,7 +40,7 @@ public class Computador{
     }
 
     public int getIdComputador(){
-        return this.idComputador;
+        return idComputador;
     }
 
     public String getFabricante() {
@@ -89,6 +89,4 @@ public class Computador{
             this.qtdProcessadores = qtdProcessadores;
         }
     }
-
-    
 }
